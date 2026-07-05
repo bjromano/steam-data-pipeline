@@ -1,0 +1,13 @@
+# Profile for dbt Projects on Snowflake (runs inside Snowflake).
+# No credentials: execution uses the calling Snowflake session's auth.
+# The role/warehouse/database/schema here must already exist (created by snowflake/01).
+steam_dbt:
+  target: prod
+  outputs:
+    prod:
+      type: snowflake
+      database: STEAM
+      schema: SILVER
+      role: SYSADMIN
+      warehouse: STEAM_WH
+      threads: 4

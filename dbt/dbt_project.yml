@@ -1,0 +1,17 @@
+name: steam_dbt
+version: "1.0.0"
+profile: steam_dbt
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  steam_dbt:
+    silver:
+      +schema: SILVER
+      +materialized: view
+    gold:
+      +schema: GOLD
+      +materialized: table

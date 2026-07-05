@@ -1,0 +1,27 @@
+name: pr-checks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Python syntax check
+        run: python -m py_compile steam_api.py extract_steam.py lambda/handler.py
+
+      - name: YAML validity check (dbt project files)
+        run: |
+          pip install pyyaml
+          python -c "
+          import yaml, glob
+          for f in glob.glob('dbt/**/*.yml', recursive=True):
+              yaml.safe_load(open(f)); print('OK', f)
+          "

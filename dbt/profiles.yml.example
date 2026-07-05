@@ -1,0 +1,14 @@
+# Copy to ~/.dbt/profiles.yml (or set DBT_PROFILES_DIR) and fill in.
+steam_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "<your_account_locator>"   # e.g. xy12345.us-east-1
+      user: "<your_user>"
+      password: "<your_password>"          # or use key-pair auth
+      role: SYSADMIN
+      database: STEAM
+      warehouse: STEAM_WH
+      schema: SILVER
+      threads: 4

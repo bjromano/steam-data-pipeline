@@ -1,0 +1,2 @@
+# boto3 is preinstalled in the Lambda runtime; only requests must be packaged
+requests>=2.31

@@ -1,0 +1,5 @@
+# Local extractor dependencies (dbt runs inside Snowflake via dbt Projects;
+# the Lambda packages its own deps from lambda/requirements.txt)
+requests>=2.31
+boto3>=1.34
+python-dotenv>=1.0

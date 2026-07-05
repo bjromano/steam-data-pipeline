@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_game
+    description: One row per game; latest known store attributes.
+    columns:
+      - name: game_key
+        tests: [unique, not_null]
+
+  - name: fact_review
+    description: One row per Steam review (incremental).
+    columns:
+      - name: review_id
+        tests: [unique, not_null]
+      - name: game_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_game')
+              field: game_key
+
+  - name: fact_daily_game_performance
+    description: Daily grain — rank, CCU, and review activity per top-100 game.
+      # grain uniqueness enforced by tests/assert_fact_daily_grain_unique.sql
+    columns:
+      - name: game_key
+        tests: [not_null]
+      - name: activity_date
+        tests: [not_null]

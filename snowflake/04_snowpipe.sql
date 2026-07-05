@@ -1,0 +1,39 @@
+-- Snowpipe auto-ingest: files load into bronze minutes after landing in S3.
+-- Replaces the scheduled COPY task (T2) in the Lambda/event-driven (v2) design.
+USE ROLE SYSADMIN;
+USE DATABASE STEAM;
+USE SCHEMA OPS;
+
+CREATE OR REPLACE PIPE OPS.PIPE_MOST_PLAYED AUTO_INGEST = TRUE AS
+  COPY INTO RAW.MOST_PLAYED (payload, _file)
+  FROM (SELECT $1, METADATA$FILENAME FROM @OPS.STEAM_RAW_STAGE/most_played/)
+  FILE_FORMAT = (FORMAT_NAME = OPS.NDJSON_FMT);
+
+CREATE OR REPLACE PIPE OPS.PIPE_PLAYER_COUNTS AUTO_INGEST = TRUE AS
+  COPY INTO RAW.PLAYER_COUNTS (payload, _file)
+  FROM (SELECT $1, METADATA$FILENAME FROM @OPS.STEAM_RAW_STAGE/player_counts/)
+  FILE_FORMAT = (FORMAT_NAME = OPS.NDJSON_FMT);
+
+CREATE OR REPLACE PIPE OPS.PIPE_REVIEWS AUTO_INGEST = TRUE AS
+  COPY INTO RAW.REVIEWS (payload, _file)
+  FROM (SELECT $1, METADATA$FILENAME FROM @OPS.STEAM_RAW_STAGE/reviews/)
+  FILE_FORMAT = (FORMAT_NAME = OPS.NDJSON_FMT);
+
+CREATE OR REPLACE PIPE OPS.PIPE_APP_DETAILS AUTO_INGEST = TRUE AS
+  COPY INTO RAW.APP_DETAILS (payload, _file)
+  FROM (SELECT $1, METADATA$FILENAME FROM @OPS.STEAM_RAW_STAGE/app_details/)
+  FILE_FORMAT = (FORMAT_NAME = OPS.NDJSON_FMT);
+
+-- All pipes on the same bucket share ONE notification channel (SQS queue ARN).
+-- Grab it from the notification_channel column:
+SHOW PIPES IN SCHEMA OPS;
+
+-- Then wire the S3 bucket to that queue (see infra/lambda_setup.md step 4).
+-- Verify after the next Lambda run:
+--   SELECT SYSTEM$PIPE_STATUS('OPS.PIPE_REVIEWS');
+--   SELECT * FROM TABLE(INFORMATION_SCHEMA.COPY_HISTORY(
+--     TABLE_NAME => 'RAW.REVIEWS', START_TIME => DATEADD(hour, -2, CURRENT_TIMESTAMP())));
+
+-- IMPORTANT: if the v1 task DAG is running, suspend it to avoid double-scheduling:
+--   ALTER TASK OPS.T1_EXTRACT_STEAM SUSPEND;
+--   ALTER TASK OPS.T2_LOAD_RAW SUSPEND;

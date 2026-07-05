@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: silver_most_played
+    columns:
+      - name: appid
+        tests: [not_null]
+      - name: chart_rank
+        tests: [not_null]
+
+  - name: silver_reviews
+    columns:
+      - name: review_id
+        tests: [unique, not_null]
+      - name: appid
+        tests: [not_null]
+
+  - name: silver_app_details
+    columns:
+      - name: appid
+        tests: [not_null]
+
+  - name: silver_player_counts
+    columns:
+      - name: appid
+        tests: [not_null]

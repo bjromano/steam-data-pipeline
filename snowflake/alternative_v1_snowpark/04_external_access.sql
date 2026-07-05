@@ -1,0 +1,14 @@
+-- External access integration so the Snowpark proc can call the Steam API.
+-- Run as ACCOUNTADMIN.
+USE ROLE ACCOUNTADMIN;
+
+CREATE OR REPLACE NETWORK RULE STEAM.OPS.STEAM_API_RULE
+  MODE = EGRESS
+  TYPE = HOST_PORT
+  VALUE_LIST = ('api.steampowered.com:443', 'store.steampowered.com:443');
+
+CREATE OR REPLACE EXTERNAL ACCESS INTEGRATION steam_api_int
+  ALLOWED_NETWORK_RULES = (STEAM.OPS.STEAM_API_RULE)
+  ENABLED = TRUE;
+
+GRANT USAGE ON INTEGRATION steam_api_int TO ROLE SYSADMIN;

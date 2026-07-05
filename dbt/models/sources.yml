@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: steam_raw
+    description: Bronze layer — raw NDJSON from the Steam API, loaded via COPY INTO from S3.
+    database: STEAM
+    schema: RAW
+    tables:
+      - name: MOST_PLAYED
+        description: Top-100 most-played games snapshot (rank, appid, peak CCU).
+      - name: APP_DETAILS
+        description: Store metadata per game from the appdetails endpoint.
+      - name: REVIEWS
+        description: Reviews created in the last 24h per top game.
+      - name: PLAYER_COUNTS
+        description: Point-in-time concurrent player counts.

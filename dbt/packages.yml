@@ -1,0 +1,4 @@
+# No package dependencies. (dbt_utils was removed; its single test was replaced
+# by tests/assert_fact_daily_grain_unique.sql so the project runs inside
+# Snowflake without needing dbt deps / external package downloads.)
+packages: []

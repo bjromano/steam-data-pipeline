@@ -1,0 +1,20 @@
+# secrets
+.env
+
+# python
+.venv*/
+__pycache__/
+*.pyc
+
+# local extraction output (--dry-run)
+out/
+
+# lambda build artifacts
+lambda/package/
+lambda/*.zip
+
+# dbt artifacts
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+logs/
