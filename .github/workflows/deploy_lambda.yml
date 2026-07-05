@@ -1,0 +1,44 @@
+# CD: any push to main touching the extraction code redeploys the Lambda.
+# After this, `git push` IS the deployment — the function can't drift from the repo.
+name: deploy-lambda
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "lambda/**"
+      - "steam_api.py"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Package (Linux wheels for the Lambda runtime)
+        working-directory: lambda
+        run: |
+          pip install -r requirements.txt -t package/ \
+            --platform manylinux2014_x86_64 --python-version 3.12 --only-binary=:all:
+          cp handler.py ../steam_api.py package/
+          cd package && zip -qr ../steam-extract.zip .
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-2
+
+      - name: Deploy to Lambda
+        run: |
+          aws lambda update-function-code \
+            --function-name steam-extract \
+            --zip-file fileb://lambda/steam-extract.zip
+          aws lambda wait function-updated --function-name steam-extract
+          echo "deployed $(git rev-parse --short HEAD)"

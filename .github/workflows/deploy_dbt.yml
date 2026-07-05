@@ -1,0 +1,43 @@
+# CD: any push to main touching the dbt project redeploys the DBT PROJECT
+# object in Snowflake, then runs a build as a smoke test.
+# Uses Snowflake CLI (`snow dbt deploy` / `snow dbt execute`).
+name: deploy-dbt
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "dbt/**"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Snowflake CLI
+        run: pip install snowflake-cli
+
+      - name: Deploy dbt project object
+        run: |
+          snow dbt deploy STEAM.OPS.STEAM_DBT \
+            --source dbt --profiles-dir dbt --force \
+            --temporary-connection \
+            --role SYSADMIN --warehouse STEAM_WH \
+            --database STEAM --schema OPS
+
+      - name: Smoke test (dbt build)
+        run: |
+          snow dbt execute STEAM.OPS.STEAM_DBT build \
+            --temporary-connection \
+            --role SYSADMIN --warehouse STEAM_WH \
+            --database STEAM --schema OPS

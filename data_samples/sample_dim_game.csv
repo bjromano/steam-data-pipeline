@@ -1,0 +1,101 @@
+GAME_KEY,GAME_NAME,PRIMARY_DEVELOPER,PRIMARY_PUBLISHER,PRIMARY_GENRE,IS_FREE,PRICE_CURRENCY,PRICE_FINAL,RELEASE_DATE,METACRITIC_SCORE,TOTAL_RECOMMENDATIONS,HAS_STORE_PAGE
+730,Counter-Strike 2,Valve,Valve,Action,TRUE,,,2012-08-21,,5156703,TRUE
+271590,Grand Theft Auto V Legacy,Rockstar North,Rockstar Games,Action,FALSE,,,,96,1884856,TRUE
+578080,PUBG: BATTLEGROUNDS,PUBG Corporation,"KRAFTON, Inc.",Action,TRUE,,,,,1761353,TRUE
+359550,Tom Clancy's Rainbow Six Siege,Ubisoft Montreal,Ubisoft,Action,TRUE,,,,,1246183,TRUE
+105600,Terraria,Re-Logic,Re-Logic,Action,FALSE,USD,4.990000,,83,1222969,TRUE
+252490,Rust,Facepunch Studios,Facepunch Studios,Action,FALSE,USD,19.990000,,69,1150081,TRUE
+4000,Garry's Mod,Facepunch Studios,Valve,Casual,FALSE,USD,4.990000,,,1076855,TRUE
+431960,Wallpaper Engine,Wallpaper Engine Team,Wallpaper Engine Team,Casual,FALSE,USD,3.990000,,,928105,TRUE
+413150,Stardew Valley,ConcernedApe,ConcernedApe,Indie,FALSE,HKD,59.400000,2016-02-26,89,876752,TRUE
+1091500,Cyberpunk 2077,CD PROJEKT RED,CD PROJEKT RED,RPG,FALSE,CNY,89.400000,2020-12-09,86,863709,TRUE
+553850,HELLDIVERS™ 2,Arrowhead Game Studios,PlayStation Publishing LLC,Action,FALSE,USD,29.990000,,,830215,TRUE
+1245620,ELDEN RING,"FromSoftware, Inc.","FromSoftware, Inc.",Action,FALSE,THB,1790.000000,2022-02-24,94,822620,TRUE
+1174180,Red Dead Redemption 2,Rockstar Games,Rockstar Games,Action,FALSE,USD,14.990000,,93,821625,TRUE
+550,Left 4 Dead 2,Valve,Valve,Action,FALSE,USD,1.990000,,89,803021,TRUE
+227300,Euro Truck Simulator 2,SCS Software,SCS Software,Indie,FALSE,USD,4.990000,,79,771349,TRUE
+1086940,Baldur's Gate 3,Larian Studios,Larian Studios,Adventure,FALSE,USD,44.990000,,96,744512,TRUE
+739630,Phasmophobia,Kinetic Games,Kinetic Games,Action,FALSE,USD,13.990000,,,678867,TRUE
+381210,Dead by Daylight,Behaviour Interactive Inc.,Behaviour Interactive Inc.,Action,FALSE,USD,7.990000,,,670191,TRUE
+945360,Among Us,Innersloth,Innersloth,Casual,FALSE,USD,2.990000,,85,648866,TRUE
+322170,Geometry Dash,RobTop Games,RobTop Games,Action,FALSE,USD,2.490000,,,570280,TRUE
+892970,Valheim,Iron Gate AB,Coffee Stain Publishing,Action,FALSE,USD,9.990000,,,454562,TRUE
+252950,Rocket League®,Psyonix LLC,Psyonix LLC,Action,FALSE,,,,86,435588,TRUE
+1938090,Call of Duty®,Treyarch,Activision,Action,FALSE,,,,,409870,TRUE
+221100,DayZ,Bohemia Interactive,Bohemia Interactive,Action,FALSE,USD,24.990000,,,383853,TRUE
+250900,The Binding of Isaac: Rebirth,"Nicalis, Inc.","Nicalis, Inc.",Action,FALSE,USD,1.490000,,,374110,TRUE
+284160,BeamNG.drive,BeamNG,BeamNG,Racing,FALSE,USD,19.990000,,,372910,TRUE
+322330,Don't Starve Together,Klei Entertainment,Klei Entertainment,Action,FALSE,USD,1.490000,,83,371523,TRUE
+108600,Project Zomboid,The Indie Stone,The Indie Stone,Indie,FALSE,USD,13.390000,,,347200,TRUE
+960090,Bloons TD 6,Ninja Kiwi,Ninja Kiwi,Strategy,FALSE,USD,2.790000,,,345155,TRUE
+264710,Subnautica,Unknown Worlds Entertainment,Unknown Worlds Entertainment,Adventure,FALSE,USD,7.490000,,87,336656,TRUE
+3241660,R.E.P.O.,semiwork,semiwork,Action,FALSE,USD,6.490000,,,327532,TRUE
+1808500,ARC Raiders,Embark Studios,Embark Studios,Action,FALSE,USD,29.990000,,,292700,TRUE
+2807960,Battlefield™ 6,Battlefield Studios,Electronic Arts,Action,FALSE,USD,34.990000,,82,280895,TRUE
+3164500,Schedule I,TVGS,TVGS,Action,FALSE,USD,11.990000,,,279392,TRUE
+394360,Hearts of Iron IV,Paradox Development Studio,Paradox Interactive,Simulation,FALSE,USD,9.990000,,83,278679,TRUE
+251570,7 Days to Die,The Fun Pimps,The Fun Pimps Entertainment LLC,Action,FALSE,USD,24.740000,,,274579,TRUE
+289070,Sid Meier’s Civilization® VI,Firaxis Games,2K,Strategy,FALSE,USD,5.990000,,88,273606,TRUE
+3527290,PEAK,Team PEAK,Aggro Crab,Action,FALSE,USD,4.950000,,,271775,TRUE
+1144200,Ready or Not,VOID Interactive,VOID Interactive,Action,FALSE,USD,24.990000,,,257989,TRUE
+1551360,Forza Horizon 5,Playground Games,Xbox Game Studios,Action,FALSE,USD,29.990000,,,255862,TRUE
+261550,Mount & Blade II: Bannerlord,TaleWorlds Entertainment,TaleWorlds Entertainment,Action,FALSE,USD,19.990000,,77,226651,TRUE
+489830,The Elder Scrolls V: Skyrim Special Edition,Bethesda Game Studios,Bethesda Softworks,RPG,FALSE,USD,9.990000,,74,213676,TRUE
+594650,Hunt: Showdown 1896,Crytek,Crytek,Action,FALSE,USD,11.990000,,81,210507,TRUE
+294100,RimWorld,Ludeon Studios,Ludeon Studios,Indie,FALSE,USD,27.990000,,87,205156,TRUE
+2868840,Slay the Spire 2,Mega Crit,Mega Crit,Indie,FALSE,USD,24.990000,,,197825,TRUE
+1203220,NARAKA: BLADEPOINT,24 Entertainment,NetEase Games ,Action,TRUE,,,,,197768,TRUE
+646570,Slay the Spire,Mega Crit,Mega Crit,Indie,FALSE,USD,6.240000,,89,190807,TRUE
+3240220,Grand Theft Auto V Enhanced,Rockstar North,Rockstar Games,Action,FALSE,USD,14.990000,,,184199,TRUE
+2694490,Path of Exile 2,Grinding Gear Games,Grinding Gear Games,Action,FALSE,USD,29.990000,,,163841,TRUE
+2379780,Balatro,LocalThunk,Playstack,Casual,FALSE,USD,11.990000,,90,156987,TRUE
+813780,Age of Empires II: Definitive Edition,World's Edge,Xbox Game Studios,Strategy,FALSE,USD,12.240000,,84,156935,TRUE
+244210,Assetto Corsa,Kunos Simulazioni,505 Games,Indie,FALSE,USD,4.990000,,85,134124,TRUE
+2622380,ELDEN RING NIGHTREIGN,"FromSoftware, Inc.","FromSoftware, Inc.",Action,FALSE,USD,29.990000,,,126993,TRUE
+3321460,Crimson Desert,Pearl Abyss,Pearl Abyss,Action,FALSE,CAD,89.990000,2026-03-19,,108463,TRUE
+3764200,Resident Evil Requiem,"CAPCOM Co., Ltd.","CAPCOM Co., Ltd.",Action,FALSE,USD,55.990000,,92,103064,TRUE
+1142710,Total War: WARHAMMER III,CREATIVE ASSEMBLY,SEGA,Action,FALSE,USD,8.990000,,86,101994,TRUE
+1158310,Crusader Kings III,Paradox Development Studio,Paradox Interactive,RPG,FALSE,USD,14.990000,,91,95016,TRUE
+629520,Soundpad,Leppsoft,Leppsoft,Audio Production,FALSE,USD,3.990000,,,94503,TRUE
+1222670,The Sims™ 4,Maxis,Electronic Arts,Adventure,TRUE,,,,,83134,TRUE
+3405690,EA SPORTS FC™ 26,EA Canada,Electronic Arts,Simulation,FALSE,USD,13.990000,,,78980,TRUE
+440900,Conan Exiles Enhanced,Funcom,Funcom,Action,FALSE,USD,29.990000,,,78917,TRUE
+39210,FINAL FANTASY XIV Online,Square Enix,Square Enix,Massively Multiplayer,FALSE,USD,19.990000,,83,77941,TRUE
+2344520,Diablo® IV,"Blizzard Entertainment, Inc.","Blizzard Entertainment, Inc.",Action,FALSE,USD,29.990000,,,55979,TRUE
+1364780,Street Fighter™ 6,"CAPCOM Co., Ltd.","CAPCOM Co., Ltd.",Action,FALSE,USD,19.990000,,92,48037,TRUE
+440,Team Fortress 2,Valve,Valve,Action,TRUE,,,,92,47307,TRUE
+3041230,Windrose,Kraken Express,Kraken Express,Action,FALSE,USD,26.990000,,,44841,TRUE
+1366800,Crosshair X,CenterPoint Gaming,CenterPoint Gaming,Action,FALSE,USD,0.990000,,,40976,TRUE
+2300320,Farming Simulator 25,GIANTS Software,GIANTS Software,Simulation,FALSE,USD,22.490000,,,36715,TRUE
+3124540,Far Far West,Evil Raptor,Fireshine Games,Action,FALSE,USD,11.690000,2026-04-28,,28885,TRUE
+3472040,NBA 2K26,Visual Concepts,2K,Sports,FALSE,USD,9.790000,,,22383,TRUE
+4128580,BidKing,MindSurge Network & Games,Elegoose Games,Casual,FALSE,USD,1.490000,,,21286,TRUE
+3551340,Football Manager 26,Sports Interactive,SEGA,Simulation,FALSE,CAD,39.990000,2025-11-04,,20152,TRUE
+3105440,Heroes of Might and Magic: Olden Era,Unfrozen,Hooded Horse,RPG,FALSE,USD,29.990000,,,17031,TRUE
+570,Dota 2,Valve,Valve,Action,TRUE,,,,90,14373,TRUE
+3892270,Gamble With Your Friends,TEAM GWYF,TENSTACK,Adventure,FALSE,USD,2.780000,2026-05-01,,12837,TRUE
+3526710,Everything is Crab: The Animal Evolution Roguelite,Odd Dreams Digital,Secret Mode,Action,FALSE,USD,8.990000,,,5924,TRUE
+291550,Brawlhalla,Blue Mammoth Games,Ubisoft,Action,TRUE,,,,,2898,TRUE
+230410,Warframe,Digital Extremes,Digital Extremes,Action,TRUE,,,,69,2883,TRUE
+236390,War Thunder,Gaijin Entertainment,Gaijin Network Ltd,Action,TRUE,,,2013-08-15,81,1985,TRUE
+1172470,Apex Legends™,Respawn,Electronic Arts,Action,TRUE,,,,88,1580,TRUE
+1665460,eFootball™,KONAMI,KONAMI,Simulation,TRUE,,,,,1208,TRUE
+2357570,Overwatch®,"Blizzard Entertainment, Inc.","Blizzard Entertainment, Inc.",Action,TRUE,,,,,270,TRUE
+714010,Aimlabs,Statespace,Statespace,Action,TRUE,,,,,262,TRUE
+438100,VRChat,VRChat Inc.,VRChat Inc.,Adventure,TRUE,,,,,147,TRUE
+1422450,Deadlock,Valve,Valve,Action,FALSE,,,,,,TRUE
+1449850,Yu-Gi-Oh! Master Duel,KONAMI,KONAMI,Simulation,TRUE,,,,,,TRUE
+3564740,Where Winds Meet,Everstone Studio,NetEase Games,Action,TRUE,,,,,,TRUE
+1973530,Limbus Company,ProjectMoon,ProjectMoon,Free To Play,TRUE,,,,,,TRUE
+3224770,Umamusume: Pretty Derby,"Cygames, Inc.","Cygames, Inc.",Simulation,TRUE,,,,,,TRUE
+2073850,THE FINALS,Embark Studios,Embark Studios,Action,TRUE,,,,,,TRUE
+1329410,Unknown (1329410),,,,,,,,,,FALSE
+4025700,Heartopia,XD,XD,Casual,TRUE,,,,,,TRUE
+2767030,Marvel Rivals,NetEase Games,NetEase Games,Action,TRUE,,,,,,TRUE
+2073620,Arena Breakout: Infinite,Morefun Studios,Morefun Studios,Action,TRUE,,,,,,TRUE
+1281930,tModLoader,TML Team,Re-Logic,Action,TRUE,,,,,,TRUE
+3419430,Bongo Cat,Marcel Zurawka,Irox Games,Casual,TRUE,,,,,,TRUE
+2676230,FiveM,,,,FALSE,,,,,,TRUE
+1905180,OBS Studio,OBS Project,OBS Project,Utilities,TRUE,,,,,,TRUE
+3513350,Wuthering Waves,KURO GAMES,KURO GAMES,Action,TRUE,,,,,,TRUE
+2507950,Delta Force,Team Jade,TiMi Studio Group,Action,TRUE,,,,,,TRUE

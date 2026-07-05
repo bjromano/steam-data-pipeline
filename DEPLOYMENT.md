@@ -227,7 +227,8 @@ auth — no local Python, no credentials file.)
    (`dbt_project.yml` + `profiles.yml` at the root; `macros/`, `models/silver/`,
    `models/gold/`, `tests/` beneath). Skip `profiles.yml.example`.
 2. The workspace detects the project (dbt toolbar appears). Select profile
-   target `prod`, operation **Build** → Execute. Expect `PASS=23 ERROR=0`.
+   target `prod`, operation **Build** → Execute. Expect all green
+   (`ERROR=0`; 8 models + tests).
 3. **Deploy** (dropdown next to Build): location `STEAM`/`OPS`, name
    `STEAM_DBT`, default target `prod`, "Run dbt deps" off.
 4. One-time grants (ACCOUNTADMIN):
@@ -258,15 +259,27 @@ Today's top 10 with names and review stats. **This is the pipeline working end t
 
 ---
 
-## 7. GitHub (~15 min)
+## 7. GitHub + CD (~20 min)
 
 1. Create a **public** repo, push the project (`.gitignore` already excludes
    `.env`, `out/`, build artifacts).
-2. Optional — only if you want the `manual-extract` backfill workflow to work:
-   add repo secrets `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`.
-   No Snowflake secrets needed anywhere: dbt runs inside Snowflake.
+2. Add six repository secrets (Settings → Secrets and variables → Actions):
+   `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET`,
+   `SNOWFLAKE_ACCOUNT` (org-account form, e.g. `ABCDEFG-XY12345`),
+   `SNOWFLAKE_USER`, `SNOWFLAKE_PASSWORD`.
+3. Grant the IAM user deploy rights (group policy):
+   `lambda:UpdateFunctionCode` + `lambda:GetFunction` on the function ARN.
+4. Continuous deployment is then live: pushes touching `lambda/**` or
+   `steam_api.py` redeploy the Lambda (`deploy_lambda.yml`); pushes touching
+   `dbt/**` redeploy the DBT PROJECT object and run a smoke-test build
+   (`deploy_dbt.yml`, via `snow dbt deploy`/`execute`).
 
-**Gate:** repo visible, no `.env` or credentials in the file list.
+**Gate:** trigger both deploy workflows manually from the Actions tab — both
+green. No `.env` or credentials in the repo file list.
+
+Hardening note: CI currently authenticates to Snowflake with a personal
+user/password. The production-grade upgrade is a dedicated `TYPE = SERVICE`
+user with key-pair auth and a least-privilege deploy role.
 
 ---
 
@@ -285,6 +298,7 @@ Day-after check: tomorrow, confirm a second `activity_date` appears in
 `GOLD.FACT_DAILY_GAME_PERFORMANCE` — that's your top-100-over-time history
 accumulating, hands-free.
 
-NOTE: the dbt project of record runs from the DBT PROJECT object. After editing
-models in the repo (or workspace), re-run Build in the workspace and re-Deploy
-to update the scheduled runs.
+NOTE: the dbt project of record runs from the DBT PROJECT object, and the git
+repo is the source of truth for it: pushing model changes to main auto-deploys
+via `deploy_dbt.yml`. The Snowsight workspace is a scratchpad for interactive
+development — it no longer needs to be kept in sync by hand.

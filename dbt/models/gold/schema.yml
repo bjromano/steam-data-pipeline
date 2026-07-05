@@ -27,3 +27,12 @@ models:
         tests: [not_null]
       - name: activity_date
         tests: [not_null]
+
+  - name: rpt_daily_game_performance
+    description: >
+      Reporting view — the daily fact flattened with game attributes.
+      Thin consumption layer over the star; a view so it can't drift from
+      dim_game.
+    columns:
+      - name: game_name
+        tests: [not_null]

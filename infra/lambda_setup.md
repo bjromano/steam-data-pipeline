@@ -53,8 +53,10 @@ aws lambda create-function \
   --environment "Variables={S3_BUCKET=portfolio-steam-data-raw,TOP_N=100,CHUNK_SIZE=50}"
 ```
 
-Redeploy after code changes: rebuild the zip, then
-`aws lambda update-function-code --function-name steam-extract --zip-file fileb://steam-extract.zip`
+Redeploying after code changes is automated: pushes to main touching
+`lambda/**` or `steam_api.py` rebuild and deploy via
+`.github/workflows/deploy_lambda.yml`. (Manual equivalent: rebuild the zip,
+then `aws lambda update-function-code --function-name steam-extract --zip-file fileb://steam-extract.zip`)
 
 ## 3. EventBridge schedule
 

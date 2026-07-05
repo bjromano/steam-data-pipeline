@@ -24,6 +24,13 @@ Snowpipe, the loaded rows fill streams, and a triggered task
 (`WHEN SYSTEM$STREAM_HAS_DATA`) runs the dbt build — no polling, no schedule
 coupling.
 
+## dbt lineage
+
+![dbt lineage DAG](docs/dbt_dag.png)
+
+*Bronze sources (RAW) → typed/deduped silver models → gold star schema, as
+compiled by dbt from `ref()`/`source()` dependencies.*
+
 ## Datasets
 
 | Dataset | Endpoint | Notes |
@@ -41,6 +48,16 @@ coupling.
 - `fact_review` — one row per review, incremental merge on `review_id`
 - `fact_daily_game_performance` — daily grain: rank, peak CCU, snapshot player
   count, review sentiment aggregates
+- `rpt_daily_game_performance` — reporting view flattening the daily fact with
+  game attributes (a view, so it can never drift from the dimension)
+
+## Sample output
+
+Browsable snapshots of the gold tables (GitHub renders them as tables):
+[daily game performance](data_samples/sample_daily_game_performance.csv) ·
+[game dimension](data_samples/sample_dim_game.csv) ·
+[reviews fact](data_samples/sample_fact_review.csv) —
+see [data_samples/](data_samples/) for context.
 
 ## Repo layout
 
@@ -55,7 +72,8 @@ snowflake/alternative_v1_snowpark/
                         not deployed: same pipeline orchestrated entirely by
                         Snowflake Tasks + Snowpark (see its README for why)
 dbt/                    dbt project (runs as a DBT PROJECT object in Snowflake)
-.github/workflows/      PR checks + manual backfill extraction
+.github/workflows/      CI/CD: PR checks, manual backfill, and auto-deploy of
+                        the Lambda + dbt project on pushes to main
 DEPLOYMENT.md           step-by-step deployment runbook with verification gates
 ```
 
