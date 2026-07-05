@@ -36,8 +36,11 @@ jobs:
             --database STEAM --schema OPS
 
       - name: Smoke test (dbt build)
+        # connection flags must come BEFORE the positional args: snow dbt
+        # execute treats everything after the dbt command as dbt passthrough
         run: |
-          snow dbt execute STEAM.OPS.STEAM_DBT build \
+          snow dbt execute \
             --temporary-connection \
             --role SYSADMIN --warehouse STEAM_WH \
-            --database STEAM --schema OPS
+            --database STEAM --schema OPS \
+            STEAM.OPS.STEAM_DBT build
