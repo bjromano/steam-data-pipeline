@@ -96,9 +96,9 @@ Snowsight workspace, deploy as `STEAM.OPS.STEAM_DBT` → streams + triggered tas
 - **No long-lived credentials in the pipeline**: Snowflake reaches S3 by
   assuming an IAM role (storage integration + external ID); Lambda uses its
   execution role; dbt runs in-session inside Snowflake with no stored password.
-- **Cost-driven design**: extraction is ~80% network waits, so it runs on free
+- **Cost-driven design**: extraction is 80% network waits, so it runs on free
   Lambda compute rather than a Snowflake warehouse billed to sleep. Snowflake
-  does only warehouse-worthy work (~$3/mo at this scale).
+  does only warehouse-worthy work ($3/mo at this scale).
 - **Referential integrity vs. source reality**: the chart endpoint lists games
   the store endpoint won't serve (unlisted titles). A dbt relationships test
   caught this; fixed by re-basing `dim_game`'s spine on observed chart games
